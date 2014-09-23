@@ -1,12 +1,30 @@
-<div class="gridwrapper">
-                <div class="tile">
-                    <div class="tileinner">
+<div class="project_info">
  						Name: <%= @project.name %><br>
  						Description: <%= @project.description %><br>
  						Funding Goal: <%= @project.goal %><br>
  						Star Date: <%= @project.start_date %><br>
  						End Date: <%= @project.start_date %><br>
+ 						Rewards: <br>
+	 						<%@project.rewards.each do |reward|%>
+	 						<%= reward.amount %>
+	 						<%= reward.description %><br>
+	 					<%end%>
+ 					
+ 	<h2> Like what you see? Back this project!</h2>
+ 	<%if current_user%>
+	 	 <%= link_to "Donate", new_user_donation_path('current') %> 
+	<%else%>
+	<p> Sign in to back a project. </p>
+	<%end%>
 
-                    </div>
-                </div>
+            
 </div>
+
+
+
+
+
+
+
+
+ 
