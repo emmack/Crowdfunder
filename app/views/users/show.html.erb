@@ -1,0 +1,13 @@
+<h2> My Profile </h2>
+<%= link_to "Edit Profile", edit_user_path(@user)
+ %> 
+
+ <div class="profile">
+    <% if current_user %>
+        <div class ="profile_info">
+        <div class = "subject"> First name:</div>  <%= current_user.first_name %> <br>
+        <div class = "subject"> Last name:</div>  <%= current_user.last_name %> <br>
+    	<div class = "subject"> Email:</div>  <%= current_user.email %> <br>
+       	</div>
+    <% end %>
+</div>
