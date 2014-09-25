@@ -33,7 +33,8 @@ gem 'geocoder'
 gem 'faker'
 gem 'kaminari'
 gem 'cocoon'
-
+gem "sorcery"
+gem 'activemerchant'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

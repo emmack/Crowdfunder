@@ -1,0 +1,12 @@
+<div class="nested-fields">
+
+	<div class ="field">
+		<%= f.fields_for :donations do |donations| %>
+				<%= render 'donation_fields', :f => donations%>
+		<%end%>
+	</div>
+	
+</div>
+
+
+

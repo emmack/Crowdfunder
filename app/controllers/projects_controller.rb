@@ -1,5 +1,4 @@
 class ProjectsController < ApplicationController
-	before_filter :ensure_logged_in, only: [:create, :destroy]
 
 	def index
 		@projects = Project.all
@@ -47,7 +46,7 @@ class ProjectsController < ApplicationController
 
 	private
   	def project_params
-  	 	params.require(:project).permit( :name, :description, :goal, :start_date, :end_date, rewards_attributes: [:description, :amount, :done, :_destroy])
+  	 	params.require(:project).permit( :name, :description, :goal, :start_date, :end_date, rewards_attributes: [:description, :amount, :done, :_destroy], donations_attributes: [:reward_id, :amount, :project_id])
   	end
 end
 

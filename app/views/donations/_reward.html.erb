@@ -1,7 +1,7 @@
-<h2> Rewards for <%=@project.name%> </h2>
 
-<%= render partial: "reward", collection: @project.rewards %>
+<button id="reward">Purchase</button>
 
+<div class="Pay">
 
 <%= form_for (@project) do |f|%>
 	<%= f.fields_for :rewards do |rewards| %>
@@ -10,6 +10,4 @@
 		<%= f.submit %>
 	<%end%>
 
-
-	
-
+</div>

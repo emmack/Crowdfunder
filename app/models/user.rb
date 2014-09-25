@@ -1,9 +1,16 @@
 class User < ActiveRecord::Base
-	
-	has_many :owned_projects, class_name: 'projects'
-	has_many :backed_projects,  through: :donations, class_name: 'projects'
+ 	authenticates_with_sorcery!
 
-	has_secure_password
-	validates :email, presence: true, uniqueness: true
+	has_many :owned_projects, class_name: 'Project'
+	has_many :donations
+	has_many :rewards, through: :donations
+	has_many :backed_projects, through: :rewards, source: 'project'
+
+
+	validates :password, length: { minimum: 3 }
+  	validates :password, confirmation: true
+  	validates :password_confirmation, presence: true
+
+  	validates :email, uniqueness: true
 
 end

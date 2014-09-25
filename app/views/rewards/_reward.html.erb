@@ -1,0 +1,15 @@
+<div class='reward'>
+	<%= reward.amount %>
+	<%= reward.description %><br>
+
+	<%=form_for([@project, reward]) do |f|%>
+		<%= f.fields_for :donations do |d| %>
+			<%#= render 'donate_fields', :d => donation %>
+			<%= d.text_field :amount %>	
+		<%end%>
+		<%=f.submit 'Donate'%>
+	<%end%>
+
+</div>
+
+

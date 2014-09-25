@@ -1,20 +1,21 @@
 class SessionsController < ApplicationController
-	def new
-    end
+    skip_before_filter :require_login, except: [:destroy]
 
-    def create
-        user = User.find_by_email(params[:email])
-        if user && user.authenticate(params[:password])
-            session[:user_id] = user.id
-            redirect_to projects_url, :notice => "Logged in!"
-        else
-            flash.now[:alert] = "Invalid email or password"
-            render "new"
-        end
-    end
+  def new
+    @user = User.new
+  end
 
-    def destroy
-        session[:user_id] = nil
-        redirect_to projects_url, notice: "Logged out!"
+  def create
+    if @user = login(params[:email], params[:password])
+      redirect_back_or_to(:users, notice: 'Login successful')
+    else
+      flash.now[:alert] = 'Login failed'
+      render action: 'new'
     end
+  end
+
+  def destroy
+    logout
+    redirect_to(:users, notice: 'Logged out!')
+  end
 end
