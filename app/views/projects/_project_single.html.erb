@@ -15,13 +15,15 @@
 
 
 <% if current_user %>
-	<% if current_user.donations != [] %>
-		<p> You have contributed 
-		<%current_user.donations.each do |donation|%>
-			<%=donation.amount %> 
-			<%end%>
-
-			to this project! </p>
+	<% if current_user.backed_projects !=[]%>
+	<% current_user.backed_projects.each do |project|%>
+		 <%= link_to project.name, project_path(project)%>
+		 <% current_user.rewards.each do |reward|%>
+			 <p> You have donated: <%= reward.amount%></p>
+			 <p> Your reward: <%= reward.description%></p>
+		 <%end%>
+	<%end%>
+	
  		<p> Click <%= link_to "Donate", project_rewards_path(@project) %> to donate more </p>
  	<%else%>
  	<h2> Like what you see? Back this project!</h2>
