@@ -29,8 +29,8 @@ class ProjectsController < ApplicationController
         @donations = @project.donations
 		@sum = @donations.to_a.sum(&:amount) 
 		@goal = @project.goal
-		@remainder = (@goal - @sum)  
-
+		@remainder = (@goal - @sum)
+		@days_until =  (@project.end_date - Date.today).to_s
     end
 
 	def update 

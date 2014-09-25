@@ -3,7 +3,7 @@
  	Description: <%= @project.description %><br>
  	Funding Goal: <%= @project.goal %><br>
  	Start Date: <%= @project.start_date %><br>
- 	End Date: <%= @project.start_date %><br>
+ 	End Date: <%= @project.end_date %><br>
  	Rewards: <br>
 	 	<%@project.rewards.each do |reward|%>
 	 		<%= reward.amount %>
@@ -13,6 +13,9 @@
  <p> Total donated: <%=@sum%></p>
   <p> Total remaining: <%=@remainder%></p>
 
+<p> Days remaing until time is up: <%= @days_until.to_i %></p>
+<br>
+<br>
 
 <% if current_user %>
 	<% if current_user.backed_projects !=[]%>

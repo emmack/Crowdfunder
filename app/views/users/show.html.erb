@@ -11,3 +11,29 @@
        	</div>
     <% end %>
 </div>
+
+<% if current_user %>
+
+	<% if current_user.backed_projects !=[]%>
+
+	<% current_user.backed_projects.each do |project|%>
+	<p> Backed Projects:</p>
+		 <%= link_to project.name, project_path(project)%>
+		 <% current_user.rewards.each do |reward|%>
+			 <p> You have donated: <%= reward.amount%></p>
+			 <p> Your reward: <%= reward.description%></p>
+		 <%end%>
+	<%end%>
+	
+
+
+ <%end%>
+
+
+ 	
+
+
+
+<%end%>
+
+
