@@ -10,11 +10,38 @@
 	 		<%= reward.description %><br>
 	 	<%end%>
  					
+ <p> Total donated: <%=@sum%></p>
+  <p> Total remaining: <%=@remainder%></p>
+
+
+<% if current_user %>
+	<% if current_user.donations != [] %>
+		<p> You have contributed 
+		<%current_user.donations.each do |donation|%>
+			<%=donation.amount %> 
+			<%end%>
+
+			to this project! </p>
+ 		<p> Click <%= link_to "Donate", project_rewards_path(@project) %> to donate more </p>
+ 	<%else%>
  	<h2> Like what you see? Back this project!</h2>
 	 
 		 	 <%= link_to "Donate", project_rewards_path(@project) %> 
 		
 		<p> Sign in to back a project. </p>
+
+ <%end%>
+
+ <%else%>
+ 	<p> Sign in or login to back this project </p>
+
+
+
+<%end%>
+
+
+
+ 	
 	      
 </div>
 

@@ -27,6 +27,11 @@ class ProjectsController < ApplicationController
     def show
         @project = Project.find(params[:id])
         @project.rewards.build
+        @donations = @project.donations
+		@sum = @donations.to_a.sum(&:amount) 
+		@goal = @project.goal
+		@remainder = (@goal - @sum)  
+		
     end
 
 	def update 
