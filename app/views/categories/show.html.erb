@@ -1,0 +1,12 @@
+<h1> <%= @category.name %></h1>
+<div class="gridwrapper">
+	
+	<% @category.projects.order("created_at desc").each do |project| %>
+		<div class="tile">
+			<div class="tileinner">
+				<%= link_to project.name, project_path(project) %>
+
+			</div>
+		</div>
+	<%end%>
+</div>

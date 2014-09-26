@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-	
+	belongs_to :categories
 	belongs_to :creater, class_name: 'User'
 	has_many :rewards
 	has_many :donations,  through: :rewards
