@@ -31,6 +31,8 @@ class ProjectsController < ApplicationController
 		@goal = @project.goal
 		@remainder = (@goal - @sum)
 		@days_until =  (@project.end_date - Date.today).to_s
+		@user_donations = @donations.where(:user_id => current_user)
+
     end
 
 	def update 

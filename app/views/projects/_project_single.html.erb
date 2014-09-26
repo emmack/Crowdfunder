@@ -13,38 +13,29 @@
  <p> Total donated: <%=@sum%></p>
   <p> Total remaining: <%=@remainder%></p>
 
-<p> Days remaing until time is up: <%= @days_until.to_i %></p>
+<p> Days remaing until deadline: <%= @days_until.to_i %></p>
 <br>
 <br>
+
 
 <% if current_user %>
-	<% if current_user.backed_projects !=[]%>
-	<% current_user.backed_projects.each do |project|%>
-		 <%= link_to project.name, project_path(project)%>
-		 <% current_user.rewards.each do |reward|%>
-			 <p> You have donated: <%= reward.amount%></p>
-			 <p> Your reward: <%= reward.description%></p>
-		 <%end%>
+	<% if @user_donations != nil %>
+					 <% @user_donations.each do |donation|%>
+						 <p> You have donated: <%= donation.amount%></p>
+						 <p> Click <%= link_to "Donate", project_rewards_path(@project) %> to donate more </p>
+					 <%end%>
+	<%else%>
+	<p> Like what you see? Click <%= link_to "Donate", project_rewards_path(@project) %></p>
 	<%end%>
 	
- 		<p> Click <%= link_to "Donate", project_rewards_path(@project) %> to donate more </p>
- 	<%else%>
- 	<h2> Like what you see? Back this project!</h2>
-	 
-		 	 <%= link_to "Donate", project_rewards_path(@project) %> 
-		
-		<p> Sign in to back a project. </p>
+<%else%>
 
+ 	<p> Sign in or login to back this project </p>
+	
  <%end%>
 
- <%else%>
- 	<p> Sign in or login to back this project </p>
 
-
-
-<%end%>
-
-
+ 	
 
  	
 	      
