@@ -1,28 +1,11 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Bitmaker Labs assignment: Create a kickstarter copy. 
 
-Things you may want to cover:
+Learning Objectives
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* To get a feel for what it is like to work on a real project
+* To become more comfortable with integrating JavaScript into a Rails application
+* Gain more experience using jQuery and AJAX to make a site more responsive
+* Gain some experience working in pairs or groups on a software project
+* To learn how to prioritize user stories in order to deliver a minimal viable product
