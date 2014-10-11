@@ -9,3 +9,5 @@ Learning Objectives
 * Gain more experience using jQuery and AJAX to make a site more responsive
 * Gain some experience working in pairs or groups on a software project
 * To learn how to prioritize user stories in order to deliver a minimal viable product
+
+Not finished or styled. 
